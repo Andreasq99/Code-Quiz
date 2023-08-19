@@ -1,40 +1,35 @@
 var startBtn = document.querySelector(".start-button");
-var timer = document.querySelector(".timer-count");
+var yourScore = document.querySelector(".your-score");
 var qWindow = document.querySelector("#quiz-game");
 var scoreLink = document.querySelector("#score-link");
 
-var wl = [0,0];
-var qIndex = 0;
-console.log(wl.length);
-console.log(wl[1]);
-console.log(timer.hasChildNodes());
-console.log(qWindow.hasChildNodes());
-var timeLeft = 75;
-var clock;
+var score = localStorage.getItem("score");
+yourScore.innerHTML = score;
 
 
-var quizQs = [{
-    question: "Which is not a common data type?",
-    answers: ["Boolean", "String", "Number", "Byte"],
-    ans: 3
-},
-{
-    question: "The elements of an array are distinguished by which character?",
-    answers: ["Semicolon", "Colon", "Comma", "Period"],
-    ans: 2
-},
-{
-    question: "How do you reference an element in JavaScript with id 'hero'?",
-    answers: ["document.getElementById('.hero')", "document.getElementById('#hero')", "document.getElementById(#hero)", "document.getElementById(.hero)"],
-    ans: 1
-},
-{
-    question: "What does DOM stand for?",
-    answers: ["Document Object Model", "Document On My screen", "Department of Management", "Document Operations Manager"],
-    ans: 0
+var lboard = [];
+var lboardNames = [];
+
+function refreshLboard(){
+    if (localStorage.getItem("lb1")=== null){
+        localStorage.setItem("lb1", score);
+        lboard.push(score);
+    } else if (localStorage.getItem("lb2")=== null){
+        localStorage.setItem("lb2", score);
+        lboard.push(score);
+    } else if (localStorage.getItem("lb3")=== null){
+        localStorage.setItem("lb3", score);
+        lboard.push(score);
+    } else if (localStorage.getItem("lb4")=== null){
+        localStorage.setItem("lb4", score);
+        lboard.push(score);
+    } else if (localStorage.getItem("lb5")=== null){
+        localStorage.setItem("lb5", score);
+        lboard.push(score);
+    } else {
+        
+    }
 }
-];
-
 
 function shufflerArr(arr){
     var sampArr = arr;
@@ -48,19 +43,6 @@ function shufflerArr(arr){
     return retArr;
 }
 
-startBtn.addEventListener("click", startGame);
-scoreLink.style.display = "none";
-
-
-function startGame(){
-    quizQs = shufflerArr(quizQs);
-    runTimer();
-    console.log(quizQs);
-    console.log(quizQs[0]);
-    console.log(quizQs[0].question);
-    renderQuestion(quizQs[0]);
-    startBtn.removeEventListener("click", startGame);
-}
 
 function runTimer(){
     timeLeft = 75;
@@ -121,7 +103,6 @@ function endGame(){
     console.log(timeLeft);
     localStorage.setItem("score", timeLeft);
     qIndex = 0;
-    timer.textContent = timeLeft;
     clearInterval(clock);
     while(qWindow.hasChildNodes()){
         qWindow.removeChild(qWindow.firstChild);

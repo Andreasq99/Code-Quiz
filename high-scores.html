@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Coding Quiz</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/hs-style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <div class= "header">High Scores!</div>
+    </header>
+
+    <main>
+      <section>
+        <div class="card" id="score-sheet">
+          <div> Leaderboard</div>
+        </div>
+        <div class= "card timer">
+            <div class = "timer-text">
+              <h3>Your Score:</h3>
+              <div class="large-font your-score"></div>
+            </div>
+            <button id="return-link">Return to Game</button>
+            <script>
+              var returnLink = document.querySelector("#return-link");
+              returnLink.addEventListener("click", function(){
+                location.href = "./index.html";
+              })
+            </script>
+        </div>  
+      </section>
+
+    </main>
+    <script src="assets/js/hs-script.js"></script>
+  </body>
+</html>
