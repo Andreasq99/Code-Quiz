@@ -20,12 +20,19 @@
         <div class="card" id="quiz-game">
           <div> Click Start to begin!</div>
         </div>
-            <div class= "card timer">
-                <div class = "timer-text">
-              <div class="large-font timer-count">75</div>
-              <h3>seconds remaining</h3>
-            </div>
-          
+        <div class= "card timer">
+          <div class = "timer-text">
+            <div class="large-font timer-count">75</div>
+            <h3>seconds remaining</h3>
+          </div>
+          <button id="score-link">View High Scores</button>
+          <script>
+            var scoreLink = document.querySelector("#score-link");
+            scoreLink.addEventListener("click", function(){
+            location.href = "high-scores.html";
+            });
+          </script>
+        </div>
       </section>
 
     </main>
