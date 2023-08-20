@@ -18,9 +18,6 @@
     border-radius: 10px;
 }
 
-li{
-    cursor: pointer;
-}
 
 #quiz-game ul li:active{
     background-color: var(--prpl);
@@ -81,6 +78,9 @@ li{
     background-color: var(--peach);
     margin: 5px;
     border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 4px;
 }
 
 .timer{
@@ -103,6 +103,10 @@ h3{
     height: 60px;
     font-size: 30px;
     
+}
+
+#lb-title{
+    text-decoration: underline;
 }
 
 

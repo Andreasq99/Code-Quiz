@@ -60,6 +60,7 @@ function startGame(){
     console.log(quizQs[0].question);
     renderQuestion(quizQs[0]);
     startBtn.removeEventListener("click", startGame);
+    startBtn.style.display = "none";
 }
 
 function runTimer(){
@@ -68,8 +69,7 @@ function runTimer(){
         timeLeft--;
         timer.textContent = timeLeft;
         if(timeLeft === 0){
-            endGame(0);
-            clearInterval(clock);
+            endGame();
         }
     },1000);
 }
@@ -100,6 +100,11 @@ function renderQuestion(q){
 function incorrectAnswer(){
     qIndex++;
     timeLeft-=20;
+    if (timeLeft<0){
+        timeLeft = 0;
+        endGame();
+    }
+    timer.textContent = timeLeft;
     if(qIndex === quizQs.length){
         endGame();
     } else {
@@ -127,7 +132,7 @@ function endGame(){
         qWindow.removeChild(qWindow.firstChild);
     }
     var startText = document.createElement("div");
-    startText.innerHTML = "Click Start to begin!";
+    startText.innerHTML = "Head to the leaderboard!";
     qWindow.appendChild(startText);
     scoreLink.style.display = "inline";
 }
