@@ -55,7 +55,7 @@ function refreshLboard(){
 
     lboardSort();
     renderLboard();
-
+    localStorage.setItem("score", 0);
 
     
 /*  old, bad code  
